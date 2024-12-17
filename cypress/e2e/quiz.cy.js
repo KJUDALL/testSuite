@@ -4,5 +4,6 @@
 describe('Quiz', () => {
     it('Iterates through the quiz questions', () => {
         cy.visit
+        cy.get('paste cypress ui data', )
     })
 })
