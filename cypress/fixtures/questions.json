@@ -1,6 +1,6 @@
-// way to cut out api requests
 {
-    "name": "Using fixtures to represent data",
-    "email": "hello@cypress.io",
-    "body": "Fixtures are a great way to mock data for responses to routes"
-  };
+    "question": "Does this test fixture work great for this tech quiz app, or what?",
+    "answer":[
+      "I agree completely. It works great!"
+    ]
+  }

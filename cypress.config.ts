@@ -1,3 +1,4 @@
+// Runs the application using imports from lib/
 // import /export/e2e
 import { defineConfig } from "cypress";
 
