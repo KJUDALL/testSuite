@@ -1,5 +1,5 @@
 //need to mock - creates the hardcoded data
-// need to intercept the api call - when the api call is attempted, the mock will replace the data
+// need to intercept the api call - when the api call is attempted, the mock will replace the datagit a
 describe("API Requests", () => {
 	//TODO: add the describe portion of this page
 	interface Question {
