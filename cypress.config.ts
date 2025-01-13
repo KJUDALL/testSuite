@@ -4,9 +4,9 @@ export default defineConfig({
 	component: {
 		devServer: {
 			framework: "react",
-			bundler: "vite",
+			bundler: "webpack",
 		},
-		specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
+		specPattern: "**/*.cy.{js,jsx,ts,tsx}",
 	},
 
 	e2e: {

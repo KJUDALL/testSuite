@@ -95,4 +95,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export { Quiz };
