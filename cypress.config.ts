@@ -4,13 +4,13 @@ export default defineConfig({
 	component: {
 		devServer: {
 			framework: "react",
-			bundler: "webpack",
+			bundler: "vite",
 		},
 		specPattern: "**/*.cy.{js,jsx,ts,tsx}",
 	},
 
 	e2e: {
-		baseUrl: "http://localhost:3000", // Add the baseUrl only here
+		baseUrl: "http://localhost:3001", // Add the baseUrl only here
 		setupNodeEvents(on, config) {
 			// Implement node event listeners here
 		},
