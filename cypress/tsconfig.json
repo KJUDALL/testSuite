@@ -11,7 +11,8 @@
 		"strict": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		"typeRoots": ["node_modules/@types"]
+		"typeRoots": ["node_modules/@types"],
+		"rootDir": "../"
 	},
 	"include": [
 		"cypress/**/*.ts",
@@ -19,6 +20,7 @@
 		"**/*.ts",
 		"cypress/**/*.tsx",
 		"cypress/**/*.js",
-		"cypress/**/*.jsx"
+		"cypress/**/*.jsx",
+		"../client/src/models/**/*.ts"
 	]
 }

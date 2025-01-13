@@ -1,18 +1,8 @@
-//need to mock - creates the hardcoded data
-// need to intercept the api call - when the api call is attempted, the mock will replace the data
-describe("API Requests", () => {
-	// This block tests the API requests for the quiz application
-	interface Question {
-		_id: string;
-		question: string;
-		answers: Answer[];
-	}
-	interface Answer {
-		text: string;
-		isCorrect: boolean;
-	}
+import type { Question } from "../../../client/src/models/Question";
+import type { Answer } from "../../../client/src/models/Answer";
 
-	const mockQuestions = [
+describe("API Requests", () => {
+	const mockQuestions: Question[] = [
 		{
 			_id: "1",
 			question: "What is the best part of coding?",
@@ -34,29 +24,29 @@ describe("API Requests", () => {
 	];
 
 	it("should GET all answers and render them on the page", () => {
-		cy.intercept("GET", "/api/questions/random", mockQuestions).as(
-			"getQuestions"
-		);
-		//visit homepage
+		cy.intercept("GET", "/api/questions/random", {
+			statusCode: 200,
+			body: mockQuestions,
+		}).as("getQuestions");
+
 		cy.visit("/");
-		//test start quiz button
 		cy.get(".btn").contains("Start Quiz").click();
-		//wait for mockQuestions to be verified
 		cy.wait("@getQuestions")
 			.its("response.body")
 			.should("deep.equal", mockQuestions);
-		//test questions populate
+
 		cy.get("h2").should("have.text", mockQuestions[0].question);
-		//test answers display
-		mockQuestions[0].answers.forEach((answer) => {
+		mockQuestions[0].answers.forEach((answer: Answer) => {
 			cy.contains(answer.text).should("exist");
 		});
 	});
 
 	it("should proceed to next question when an answer is clicked", () => {
-		cy.intercept("GET", "/api/questions/random", mockQuestions).as(
-			"getQuestions"
-		);
+		cy.intercept("GET", "/api/questions/random", {
+			statusCode: 200,
+			body: mockQuestions,
+		}).as("getQuestions");
+
 		cy.visit("/");
 		cy.get(".btn").contains("Start Quiz").click();
 		cy.wait("@getQuestions");
@@ -65,33 +55,33 @@ describe("API Requests", () => {
 	});
 
 	it("should show the score and allow user to restart quiz after completion", () => {
-		cy.intercept("GET", "/api/questions/random", mockQuestions).as(
-			"getQuestions"
-		);
+		cy.intercept("GET", "/api/questions/random", {
+			statusCode: 200,
+			body: mockQuestions,
+		}).as("getQuestions");
+
 		cy.visit("/");
 		cy.get(".btn").contains("Start Quiz").click();
 		cy.wait("@getQuestions");
 
-		//test answering all questions
 		mockQuestions.forEach((question, index) => {
 			cy.contains(
-				question.answers.find((a) => a.isCorrect)?.text || ""
+				question.answers.find((a: Answer) => a.isCorrect)?.text || ""
 			).click();
 			if (index < mockQuestions.length - 1) {
 				cy.get("h2").should("have.text", mockQuestions[index + 1].question);
 			}
 		});
 
-		//test quiz completion
 		cy.get("h2").should("have.text", "Quiz Completed");
 		cy.get(".alert-success").should(
 			"contain.text",
 			`Your score: ${
-				mockQuestions.filter((q) => q.answers.some((a) => a.isCorrect)).length
+				mockQuestions.filter((q) => q.answers.some((a: Answer) => a.isCorrect))
+					.length
 			}/${mockQuestions.length}`
 		);
 
-		//test quiz restart
 		cy.get(".btn").contains("Take New Quiz").click();
 		cy.get("h2").should("have.text", mockQuestions[0].question);
 	});

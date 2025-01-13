@@ -25,6 +25,9 @@ declare global {
 }
 
 // Custom `mount` command
+// Remove the import statement for Cypress
+// import { Cypress } from 'cypress';
+
 const customMount = (
   component: React.ReactNode,
   options: { routerProps?: MemoryRouterProps } = {}
@@ -33,13 +36,8 @@ const customMount = (
 
   const wrapped = <MemoryRouter {...routerProps}>{component}</MemoryRouter>;
 
-  try {
-    return mount(wrapped, mountOptions);
-  } catch (error) {
-    console.error('Error mounting component:', error);
-    throw error;
-  }
+  return mount(wrapped, mountOptions);
 };
 
-// Add the custom `mount` command to Cypress
+// Example usage
 Cypress.Commands.add('mount', customMount as Cypress.CommandFn);
