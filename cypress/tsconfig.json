@@ -8,7 +8,17 @@
 		"noEmit": true,
 		"composite": true,
 		"jsx": "react-jsx",
-		"strict": true
+		"strict": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"typeRoots": ["node_modules/@types"]
 	},
-	"include": ["**/*.tsx", "**/*.ts", "**/*.js", "**/*.jsx"]
+	"include": [
+		"cypress/**/*.ts",
+		"**/*.tsx",
+		"**/*.ts",
+		"cypress/**/*.tsx",
+		"cypress/**/*.js",
+		"cypress/**/*.jsx"
+	]
 }
