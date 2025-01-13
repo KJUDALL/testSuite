@@ -4,6 +4,8 @@
 
 Learning how to test your applications is vital to becoming a Software Engineer. This is a sure fire way to know if your application is functioning as you expect, at all times. It's as if an autobot is testing your code via Cypress, while also allowing you as a user to manually test various app features. SDET's are NOT the only ones responsible for testing a code base, and the sooner that is instilled within you as an SE, the better. This app will help quiz an individual on the various aspects of testing, from a UI perspective. It's overall goal, however, is to help a user understand how to code out cypress functionality within an application - from start to finish. If successful, the cypress UI (via electron) will show if your tests have passed or not.
 
+It should be noted - I was provided starter code that covered the client and server side functionality. It was my job to add cypress test functionality. Therefore, I am making known that the starter code was not my own, but that of UNC's Bootcamp instructors.
+
 ## Table of Contents
 
 - [Description](#description)
