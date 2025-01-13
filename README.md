@@ -14,7 +14,7 @@ Learning how to test your applications is vital to becoming a Software Engineer.
 
 ## Video Walkthrough
 
-This video walkthrough will depict overall functionality of the API endpoints and json objects being returned with use data. You will also see this data creation via Mongoose. Visit this link for the video:
+This video walkthrough will depict overall functionality of the API endpoints and json objects being returned with use data. You will also see this data creation via Mongoose. Visit this link for the video: https://drive.google.com/file/d/17r7CFI_NYA-R_Tx194B4pkY7J2ayVXAL/view
 
 ## Installation
 
